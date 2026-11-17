@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLAYGROUND – Deine Sportwelt</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="background-shapes">
+    <span class="shape shape-one"></span>
+    <span class="shape shape-two"></span>
+    <span class="shape shape-three"></span>
+  </div>
+
+  <header>
+    <a class="logo" href="#">play<span>ground.</span></a>
+    <nav>
+      <a href="#spiele">SPIELE</a>
+      <a href="#sammlung">SPORTWELT</a>
+      <a href="#punkte">MEINE PUNKTE</a>
+    </nav>
+    <div class="header-dot">●</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-label"><span></span> DEIN PLATZ ZUM SPIELEN</div>
+      <h1>Ready.<br><span>Set. Play!</span></h1>
+      <p>Ein bisschen Sport. Eine Menge Spass.<br>Und du mittendrin.</p>
+      <a href="#spiele" class="start-link">SPIELE ENTDECKEN <span>↘</span></a>
+
+      <div class="hero-art">
+        <div class="art-circle circle-a"></div>
+        <div class="art-circle circle-b"></div>
+        <div class="art-circle circle-c"></div>
+        <div class="hero-ball">🏐</div>
+        <div class="floating-word word-one">PLAY!</div>
+        <div class="floating-word word-two">GO!</div>
+        <div class="hero-number">06</div>
+      </div>
+
+      <div class="hero-bottom">
+        <span>01 / 06</span>
+        <span>MOVE YOUR WAY</span>
+        <span>✳</span>
+      </div>
+    </section>
+
+    <section class="intro" id="spiele">
+      <div>
+        <span class="eyebrow">DIE SPIELWIESE</span>
+        <h2>Was spielen wir<br><span>heute?</span></h2>
+      </div>
+      <p>Sechs Sportarten.<br>Sechs kleine Herausforderungen.<br>Ein Klick genügt.</p>
+    </section>
+
+    <section class="games-grid">
+
+      <article class="game-card volleyball" data-game="volleyball">
+        <div class="card-top">
+          <span class="sport-number">01 / COURT</span>
+          <span class="sport-icon">🏐</span>
+        </div>
+        <h3>Volleyball</h3>
+        <p>Triff den Ball im richtigen Moment.</p>
+        <div class="game-arena">
+          <div class="arena-label">DEIN SPIELFELD</div>
+          <div class="volley-net"></div>
+          <div class="volley-ball">🏐</div>
+          <div class="target-zone"></div>
+        </div>
+        <div class="game-footer">
+          <span class="score">PUNKTE <b>0</b></span>
+          <button class="play-button">SPIELEN ↗</button>
+        </div>
+        <div class="game-message">Bereit?</div>
+      </article>
+
+      <article class="game-card basketball" data-game="basketball">
+        <div class="card-top">
+          <span class="sport-number">02 / COURT</span>
+          <span class="sport-icon">🏀</span>
+        </div>
+        <h3>Basketball</h3>
+        <p>Triff den Korb mit perfektem Timing.</p>
+        <div class="game-arena">
+          <div class="arena-label">DEIN WURF</div>
+          <div class="basket-hoop">⭕</div>
+          <div class="basket-ball">🏀</div>
+          <div class="basket-meter"><div></div></div>
+          <div class="meter-label">TIMING</div>
+        </div>
+        <div class="game-footer">
+          <span class="score">PUNKTE <b>0</b></span>
+          <button class="play-button">SPIELEN ↗</button>
+        </div>
+        <div class="game-message">Bereit?</div>
+      </article>
+
+      <article class="game-card soccer" data-game="soccer">
+        <div class="card-top">
+          <span class="sport-number">03 / FIELD</span>
+          <span class="sport-icon">⚽</span>
+        </div>
+        <h3>Fussball</h3>
+        <p>Dribble dich bis zum Tor!</p>
+        <div class="game-arena">
+          <div class="arena-label">DEIN ANGRIFF</div>
+          <div class="soccer-goal">▥</div>
+          <div class="soccer-player">🏃</div>
+          <div class="soccer-ball">⚽</div>
+          <div class="soccer-line"></div>
+        </div>
+        <div class="game-footer">
+          <span class="score">TORE <b>0</b></span>
+          <button class="play-button">SPIELEN ↗</button>
+        </div>
+        <div class="game-message">Bereit?</div>
+      </article>
+
+      <article class="game-card tennis" data-game="tennis">
+        <div class="card-top">
+          <span class="sport-number">04 / COURT</span>
+          <span class="sport-icon">🎾</span>
+        </div>
+        <h3>Tennis</h3>
+        <p>Erwisch den Ball im richtigen Augenblick.</p>
+        <div class="game-arena">
+          <div class="arena-label">DEIN MATCH</div>
+          <div class="tennis-net"></div>
+          <div class="tennis-ball">🎾</div>
+          <div class="tennis-racket">🎾</div>
+        </div>
+        <div class="game-footer">
+          <span class="score">PUNKTE <b>0</b></span>
+          <button class="play-button">SPIELEN ↗</button>
+        </div>
+        <div class="game-message">Bereit?</div>
+      </article>
+
+      <article class="game-card bowling" data-game="bowling">
+        <div class="card-top">
+          <span class="sport-number">05 / ALLEY</span>
+          <span class="sport-icon">🎳</span>
+        </div>
+        <h3>Bowling</h3>
+        <p>Finde die perfekte Wurfkraft.</p>
+        <div class="game-arena">
+          <div class="arena-label">DEIN WURF</div>
+          <div class="bowling-pins">🎳</div>
+          <div class="bowling-ball">⚫</div>
+          <div class="power-meter"><div></div></div>
+          <div class="meter-label">KRAFT</div>
+        </div>
+        <div class="game-footer">
+          <span class="score">PINS <b>0</b></span>
+          <button class="play-button">SPIELEN ↗</button>
+        </div>
+        <div class="game-message">Bereit?</div>
+      </article>
+
+      <article class="game-card swimming" data-game="swimming">
+        <div class="card-top">
+          <span class="sport-number">06 / POOL</span>
+          <span class="sport-icon">🏊</span>
+        </div>
+        <h3>Schwimmen</h3>
+        <p>Schwimm dich bis zur Ziellinie.</p>
+        <div class="game-arena">
+          <div class="arena-label">DEIN BECKEN</div>
+          <div class="pool-lane">
+            <div class="pool-finish"></div>
+            <div class="swimmer">🏊</div>
+          </div>
+          <div class="pool-waves">〰 〰 〰 〰 〰</div>
+          <div class="swim-distance">0 / 10</div>
+        </div>
+        <div class="game-footer">
+          <span class="score">BAHNEN <b>0</b></span>
+          <button class="play-button">SPIELEN ↗</button>
+        </div>
+        <div class="game-message">Bereit?</div>
+      </article>
+
+    </section>
+
+    <section class="collection" id="sammlung">
+      <div class="collection-text">
+        <span class="eyebrow">MORE THAN A GAME</span>
+        <h2>Deine Welt.<br><span>Dein Tempo.</span></h2>
+        <p>Ob auf dem Court, im Wasser oder auf dem Spielfeld – jede Runde ist ein neuer Versuch, deinen eigenen Rekord zu schlagen.</p>
+      </div>
+      <div class="collection-art">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+        <div class="collection-ball">🏀</div>
+        <span class="collection-star star-a">✳</span>
+        <span class="collection-star star-b">✦</span>
+        <span class="collection-caption">JUST<br>HAVE FUN.</span>
+      </div>
+    </section>
+
+    <section class="points-section" id="punkte">
+      <span class="eyebrow">DEIN SPIELSTAND</span>
+      <div class="points-box">
+        <div>
+          <h2>Deine Punkte</h2>
+          <p>Jeder Versuch zählt!</p>
+        </div>
+        <div class="total-points" id="totalPoints">0</div>
+        <span class="points-label">GESAMTPUNKTE</span>
+      </div>
+      <button id="resetAll" class="reset-button">PUNKTESTAND ZURÜCKSETZEN ↻</button>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo" href="#">play<span>ground.</span></a>
+    <span>MADE FOR FUN · MOVE YOUR WAY</span>
+    <span>✳ 2026</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
