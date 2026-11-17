@@ -1,5 +1,6 @@
 
 
+
 :root {
   --ink: #202936;
   --paper: #f6f5f1;
@@ -182,7 +183,7 @@ nav a:hover { color: #8065bd; }
   transform: translate(-50%, -50%) rotate(-20deg);
   font-size: 180px;
   filter: drop-shadow(10px 25px 15px #0008);
-  animation: heroFloat 4s ease-in-out infinite;
+  animation: none;
 }
 
 .hero-sticker {
