@@ -1,229 +1,358 @@
 
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PLAYGROUND – Deine Sportwelt</title>
+  <title>PLAYGROUND – Sports Arena</title>
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-  <div class="background-shapes">
-    <span class="shape shape-one"></span>
-    <span class="shape shape-two"></span>
-    <span class="shape shape-three"></span>
-  </div>
+<header class="topbar">
+  <a class="logo" href="#home">PLAY<span>GROUND</span><i>✳</i></a>
+  <nav>
+    <a href="#volleyball">VOLLEYBALL</a>
+    <a href="#basketball">BASKETBALL</a>
+    <a href="#fussball">FUSSBALL</a>
+    <a href="#tennis">TENNIS</a>
+    <a href="#bowling">BOWLING</a>
+    <a href="#schwimmen">SCHWIMMEN</a>
+  </nav>
+  <div class="total-pill">★ <span id="totalPoints">0</span></div>
+</header>
 
-  <header>
-    <a class="logo" href="#">play<span>ground.</span></a>
-    <nav>
-      <a href="#spiele">SPIELE</a>
-      <a href="#sammlung">SPORTWELT</a>
-      <a href="#punkte">MEINE PUNKTE</a>
-    </nav>
-    <div class="header-dot">●</div>
-  </header>
+<main id="home">
 
-  <main>
-    <section class="hero">
-      <div class="hero-label"><span></span> DEIN PLATZ ZUM SPIELEN</div>
-      <h1>Ready.<br><span>Set. Play!</span></h1>
-      <p>Ein bisschen Sport. Eine Menge Spass.<br>Und du mittendrin.</p>
-      <a href="#spiele" class="start-link">SPIELE ENTDECKEN <span>↘</span></a>
+  <section class="hero">
+    <div class="hero-copy">
+      <div class="hero-tag"><span></span> THE ULTIMATE SPORTS ARENA</div>
+      <h1>LET'S<br><em>PLAY.</em></h1>
+      <p>Sechs Sportarten. Sechs Herausforderungen.<br>Wie viele Punkte schaffst du?</p>
+      <a href="#volleyball" class="hero-button">ARENA BETRETEN <b>↓</b></a>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-ring ring1"></div>
+      <div class="hero-ring ring2"></div>
+      <div class="hero-ring ring3"></div>
+      <div class="hero-ball">🏀</div>
+      <div class="hero-sticker">NO<br>LIMITS!</div>
+      <div class="hero-side-text">PLAY YOUR GAME · 2026</div>
+    </div>
+    <div class="hero-footer">
+      <span>SPORT IS MORE THAN A GAME</span>
+      <span>SCROLL TO EXPLORE ↓</span>
+    </div>
+  </section>
 
-      <div class="hero-art">
-        <div class="art-circle circle-a"></div>
-        <div class="art-circle circle-b"></div>
-        <div class="art-circle circle-c"></div>
-        <div class="hero-ball">🏐</div>
-        <div class="floating-word word-one">PLAY!</div>
-        <div class="floating-word word-two">GO!</div>
-        <div class="hero-number">06</div>
+  <section class="arena-intro">
+    <div>
+      <span class="section-kicker">CHOOSE YOUR CHALLENGE</span>
+      <h2>Deine Arena.<br><span>Deine Regeln.</span></h2>
+    </div>
+    <p>Jede Disziplin hat ihre eigene Herausforderung.<br>Trainiere dein Timing, deine Präzision und deine Reaktion.</p>
+  </section>
+
+  <!-- VOLLEYBALL -->
+  <section class="sport-section volley-section" id="volleyball">
+    <div class="sport-heading">
+      <div class="sport-index">01 <span> / 06</span></div>
+      <div class="sport-title">
+        <span class="section-kicker">TEAMSPORT · PRÄZISION</span>
+        <h2>VOLLEY<span>BALL</span></h2>
+      </div>
+      <div class="big-sport-icon">🏐</div>
+    </div>
+
+    <div class="sport-layout">
+      <div class="game-panel">
+        <div class="panel-top">
+          <span>THE SERVE CHALLENGE</span>
+          <span class="round-label" id="volleyRound">RUNDE 1 / 5</span>
+        </div>
+        <div class="court volley-court" id="volleyCourt">
+          <div class="court-lines"></div>
+          <div class="volley-net"><span></span></div>
+          <div class="volley-target" id="volleyTarget"></div>
+          <div class="volley-ball" id="volleyBall">🏐</div>
+          <div class="court-hint">KLICKE, WENN DER BALL IM ZIELBEREICH IST!</div>
+        </div>
+        <div class="game-controls">
+          <button class="action-button" id="volleyStart">AUFSCHLAG STARTEN ↗</button>
+          <div class="mini-score">PUNKTE <b id="volleyScore">0</b></div>
+        </div>
+        <p class="game-feedback" id="volleyFeedback">Starte das Spiel und erwische den richtigen Moment.</p>
       </div>
 
-      <div class="hero-bottom">
-        <span>01 / 06</span>
-        <span>MOVE YOUR WAY</span>
-        <span>✳</span>
+      <aside class="sport-info">
+        <span class="info-label">SPORTWISSEN</span>
+        <h3>Über das Spiel</h3>
+        <p>Volleyball wird von zwei Teams mit je sechs Spielern gespielt. Ziel ist es, den Ball über das Netz auf den Boden der gegnerischen Spielfeldhälfte zu spielen.</p>
+        <div class="fact"><b>1895</b><span>Das Jahr, in dem Volleyball erfunden wurde.</span></div>
+        <div class="fact"><b>3</b><span>Maximal so viele Ballkontakte hat ein Team normalerweise vor dem Zurückspielen.</span></div>
+        <div class="fact"><b>25</b><span>Punkte braucht ein Team normalerweise zum Satzgewinn.</span></div>
+        <div class="sport-tip">★ WICHTIG: Gutes Timing und Teamarbeit!</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- BASKETBALL -->
+  <section class="sport-section basket-section" id="basketball">
+    <div class="sport-heading">
+      <div class="sport-index">02 <span> / 06</span></div>
+      <div class="sport-title">
+        <span class="section-kicker">BALLSPORT · TREFFSICHERHEIT</span>
+        <h2>BASKET<span>BALL</span></h2>
       </div>
-    </section>
+      <div class="big-sport-icon">🏀</div>
+    </div>
 
-    <section class="intro" id="spiele">
-      <div>
-        <span class="eyebrow">DIE SPIELWIESE</span>
-        <h2>Was spielen wir<br><span>heute?</span></h2>
-      </div>
-      <p>Sechs Sportarten.<br>Sechs kleine Herausforderungen.<br>Ein Klick genügt.</p>
-    </section>
-
-    <section class="games-grid">
-
-      <article class="game-card volleyball" data-game="volleyball">
-        <div class="card-top">
-          <span class="sport-number">01 / COURT</span>
-          <span class="sport-icon">🏐</span>
+    <div class="sport-layout">
+      <div class="game-panel">
+        <div class="panel-top">
+          <span>THE SHOOTING CHALLENGE</span>
+          <span class="round-label" id="basketRound">WURF 1 / 5</span>
         </div>
-        <h3>Volleyball</h3>
-        <p>Triff den Ball im richtigen Moment.</p>
-        <div class="game-arena">
-          <div class="arena-label">DEIN SPIELFELD</div>
-          <div class="volley-net"></div>
-          <div class="volley-ball">🏐</div>
-          <div class="target-zone"></div>
-        </div>
-        <div class="game-footer">
-          <span class="score">PUNKTE <b>0</b></span>
-          <button class="play-button">SPIELEN ↗</button>
-        </div>
-        <div class="game-message">Bereit?</div>
-      </article>
-
-      <article class="game-card basketball" data-game="basketball">
-        <div class="card-top">
-          <span class="sport-number">02 / COURT</span>
-          <span class="sport-icon">🏀</span>
-        </div>
-        <h3>Basketball</h3>
-        <p>Triff den Korb mit perfektem Timing.</p>
-        <div class="game-arena">
-          <div class="arena-label">DEIN WURF</div>
-          <div class="basket-hoop">⭕</div>
-          <div class="basket-ball">🏀</div>
-          <div class="basket-meter"><div></div></div>
-          <div class="meter-label">TIMING</div>
-        </div>
-        <div class="game-footer">
-          <span class="score">PUNKTE <b>0</b></span>
-          <button class="play-button">SPIELEN ↗</button>
-        </div>
-        <div class="game-message">Bereit?</div>
-      </article>
-
-      <article class="game-card soccer" data-game="soccer">
-        <div class="card-top">
-          <span class="sport-number">03 / FIELD</span>
-          <span class="sport-icon">⚽</span>
-        </div>
-        <h3>Fussball</h3>
-        <p>Dribble dich bis zum Tor!</p>
-        <div class="game-arena">
-          <div class="arena-label">DEIN ANGRIFF</div>
-          <div class="soccer-goal">▥</div>
-          <div class="soccer-player">🏃</div>
-          <div class="soccer-ball">⚽</div>
-          <div class="soccer-line"></div>
-        </div>
-        <div class="game-footer">
-          <span class="score">TORE <b>0</b></span>
-          <button class="play-button">SPIELEN ↗</button>
-        </div>
-        <div class="game-message">Bereit?</div>
-      </article>
-
-      <article class="game-card tennis" data-game="tennis">
-        <div class="card-top">
-          <span class="sport-number">04 / COURT</span>
-          <span class="sport-icon">🎾</span>
-        </div>
-        <h3>Tennis</h3>
-        <p>Erwisch den Ball im richtigen Augenblick.</p>
-        <div class="game-arena">
-          <div class="arena-label">DEIN MATCH</div>
-          <div class="tennis-net"></div>
-          <div class="tennis-ball">🎾</div>
-          <div class="tennis-racket">🎾</div>
-        </div>
-        <div class="game-footer">
-          <span class="score">PUNKTE <b>0</b></span>
-          <button class="play-button">SPIELEN ↗</button>
-        </div>
-        <div class="game-message">Bereit?</div>
-      </article>
-
-      <article class="game-card bowling" data-game="bowling">
-        <div class="card-top">
-          <span class="sport-number">05 / ALLEY</span>
-          <span class="sport-icon">🎳</span>
-        </div>
-        <h3>Bowling</h3>
-        <p>Finde die perfekte Wurfkraft.</p>
-        <div class="game-arena">
-          <div class="arena-label">DEIN WURF</div>
-          <div class="bowling-pins">🎳</div>
-          <div class="bowling-ball">⚫</div>
-          <div class="power-meter"><div></div></div>
-          <div class="meter-label">KRAFT</div>
-        </div>
-        <div class="game-footer">
-          <span class="score">PINS <b>0</b></span>
-          <button class="play-button">SPIELEN ↗</button>
-        </div>
-        <div class="game-message">Bereit?</div>
-      </article>
-
-      <article class="game-card swimming" data-game="swimming">
-        <div class="card-top">
-          <span class="sport-number">06 / POOL</span>
-          <span class="sport-icon">🏊</span>
-        </div>
-        <h3>Schwimmen</h3>
-        <p>Schwimm dich bis zur Ziellinie.</p>
-        <div class="game-arena">
-          <div class="arena-label">DEIN BECKEN</div>
-          <div class="pool-lane">
-            <div class="pool-finish"></div>
-            <div class="swimmer">🏊</div>
+        <div class="court basket-court" id="basketCourt">
+          <div class="basket-backboard"></div>
+          <div class="basket-hoop"><span></span></div>
+          <div class="basket-ball" id="basketBall">🏀</div>
+          <div class="basket-player">🏃</div>
+          <div class="aim-line"></div>
+          <div class="court-hint">KLICKE, WENN DIE ANZEIGE IM GRÜNEN BEREICH IST!</div>
+          <div class="aim-meter">
+            <div class="aim-track"><div id="basketMeter"></div></div>
+            <div class="aim-zones"><span>ZU FRÜH</span><span>PERFEKT</span><span>ZU SPÄT</span></div>
           </div>
-          <div class="pool-waves">〰 〰 〰 〰 〰</div>
-          <div class="swim-distance">0 / 10</div>
         </div>
-        <div class="game-footer">
-          <span class="score">BAHNEN <b>0</b></span>
-          <button class="play-button">SPIELEN ↗</button>
+        <div class="game-controls">
+          <button class="action-button" id="basketStart">WURF STARTEN ↗</button>
+          <div class="mini-score">PUNKTE <b id="basketScore">0</b></div>
         </div>
-        <div class="game-message">Bereit?</div>
-      </article>
-
-    </section>
-
-    <section class="collection" id="sammlung">
-      <div class="collection-text">
-        <span class="eyebrow">MORE THAN A GAME</span>
-        <h2>Deine Welt.<br><span>Dein Tempo.</span></h2>
-        <p>Ob auf dem Court, im Wasser oder auf dem Spielfeld – jede Runde ist ein neuer Versuch, deinen eigenen Rekord zu schlagen.</p>
+        <p class="game-feedback" id="basketFeedback">Triff den perfekten Moment für deinen Wurf.</p>
       </div>
-      <div class="collection-art">
-        <div class="orbit orbit-one"></div>
-        <div class="orbit orbit-two"></div>
-        <div class="collection-ball">🏀</div>
-        <span class="collection-star star-a">✳</span>
-        <span class="collection-star star-b">✦</span>
-        <span class="collection-caption">JUST<br>HAVE FUN.</span>
-      </div>
-    </section>
 
-    <section class="points-section" id="punkte">
-      <span class="eyebrow">DEIN SPIELSTAND</span>
-      <div class="points-box">
-        <div>
-          <h2>Deine Punkte</h2>
-          <p>Jeder Versuch zählt!</p>
+      <aside class="sport-info">
+        <span class="info-label">SPORTWISSEN</span>
+        <h3>Über das Spiel</h3>
+        <p>Basketball wird normalerweise mit zwei Teams aus je fünf Spielern gespielt. Der Ball soll in den gegnerischen Korb geworfen werden.</p>
+        <div class="fact"><b>1891</b><span>James Naismith erfand Basketball.</span></div>
+        <div class="fact"><b>2</b><span>Ein normaler Korb zählt zwei Punkte, ein Wurf hinter der Dreierlinie drei.</span></div>
+        <div class="fact"><b>3,05 m</b><span>So hoch hängt der Korbring.</span></div>
+        <div class="sport-tip">★ WICHTIG: Zielgenauigkeit und Konzentration!</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FUSSBALL -->
+  <section class="sport-section soccer-section" id="fussball">
+    <div class="sport-heading">
+      <div class="sport-index">03 <span> / 06</span></div>
+      <div class="sport-title">
+        <span class="section-kicker">TEAMPFUSSBALL · REAKTION</span>
+        <h2>FUSS<span>BALL</span></h2>
+      </div>
+      <div class="big-sport-icon">⚽</div>
+    </div>
+
+    <div class="sport-layout">
+      <div class="game-panel">
+        <div class="panel-top">
+          <span>THE PENALTY CHALLENGE</span>
+          <span class="round-label" id="soccerRound">SCHUSS 1 / 5</span>
         </div>
-        <div class="total-points" id="totalPoints">0</div>
-        <span class="points-label">GESAMTPUNKTE</span>
+        <div class="court soccer-court" id="soccerCourt">
+          <div class="soccer-goal">
+            <div class="goal-net"></div>
+            <div class="goal-keeper" id="goalKeeper">🧤</div>
+            <button class="goal-zone zone-left" data-zone="left" aria-label="Links schiessen"></button>
+            <button class="goal-zone zone-middle" data-zone="middle" aria-label="Mittig schiessen"></button>
+            <button class="goal-zone zone-right" data-zone="right" aria-label="Rechts schiessen"></button>
+          </div>
+          <div class="penalty-ball" id="penaltyBall">⚽</div>
+          <div class="court-hint">WÄHLE EINE ECKE UND SCHIESSE!</div>
+        </div>
+        <div class="game-controls">
+          <button class="action-button" id="soccerStart">ELFMETER STARTEN ↗</button>
+          <div class="mini-score">TORE <b id="soccerScore">0</b></div>
+        </div>
+        <p class="game-feedback" id="soccerFeedback">Kannst du den Torwart austricksen?</p>
       </div>
-      <button id="resetAll" class="reset-button">PUNKTESTAND ZURÜCKSETZEN ↻</button>
-    </section>
-  </main>
 
-  <footer>
-    <a class="logo" href="#">play<span>ground.</span></a>
-    <span>MADE FOR FUN · MOVE YOUR WAY</span>
-    <span>✳ 2026</span>
-  </footer>
+      <aside class="sport-info">
+        <span class="info-label">SPORTWISSEN</span>
+        <h3>Über das Spiel</h3>
+        <p>Fussball ist eine der beliebtesten Sportarten der Welt. Zwei Mannschaften versuchen, den Ball möglichst oft ins gegnerische Tor zu schiessen.</p>
+        <div class="fact"><b>11</b><span>Spieler stehen pro Team normalerweise auf dem Feld.</span></div>
+        <div class="fact"><b>90</b><span>Minuten dauert ein reguläres Spiel, aufgeteilt in zwei Halbzeiten.</span></div>
+        <div class="fact"><b>11 m</b><span>Entfernung des Elfmeterpunkts zur Torlinie.</span></div>
+        <div class="sport-tip">★ WICHTIG: Übersicht und schnelle Entscheidungen!</div>
+      </aside>
+    </div>
+  </section>
 
-  <script src="script.js"></script>
+  <!-- TENNIS -->
+  <section class="sport-section tennis-section" id="tennis">
+    <div class="sport-heading">
+      <div class="sport-index">04 <span> / 06</span></div>
+      <div class="sport-title">
+        <span class="section-kicker">RÜCKSCHLAGSPORT · TIMING</span>
+        <h2>TEN<span>NIS</span></h2>
+      </div>
+      <div class="big-sport-icon">🎾</div>
+    </div>
+
+    <div class="sport-layout">
+      <div class="game-panel">
+        <div class="panel-top">
+          <span>THE RALLY CHALLENGE</span>
+          <span class="round-label" id="tennisRound">BALL 1 / 8</span>
+        </div>
+        <div class="court tennis-court" id="tennisCourt">
+          <div class="tennis-net"></div>
+          <div class="tennis-ball" id="tennisBall">🎾</div>
+          <div class="tennis-racket">🎾</div>
+          <div class="tennis-target" id="tennisTarget"></div>
+          <div class="court-hint">SCHLAGE DEN BALL, BEVOR ER VORBEIFLIEGT!</div>
+        </div>
+        <div class="game-controls">
+          <button class="action-button" id="tennisStart">MATCH STARTEN ↗</button>
+          <div class="mini-score">TREFFER <b id="tennisScore">0</b></div>
+        </div>
+        <p class="game-feedback" id="tennisFeedback">Halte den Ballwechsel so lange wie möglich am Laufen.</p>
+      </div>
+
+      <aside class="sport-info">
+        <span class="info-label">SPORTWISSEN</span>
+        <h3>Über das Spiel</h3>
+        <p>Beim Tennis spielen zwei Personen im Einzel oder vier im Doppel gegeneinander. Der Ball wird mit einem Schläger über das Netz gespielt.</p>
+        <div class="fact"><b>15–30–40</b><span>So werden die Punkte innerhalb eines Spiels gezählt.</span></div>
+        <div class="fact"><b>4</b><span>Grand-Slam-Turniere gibt es jedes Jahr.</span></div>
+        <div class="fact"><b>23,77 m</b><span>So lang ist ein Tennisplatz.</span></div>
+        <div class="sport-tip">★ WICHTIG: Reaktion und Ausdauer!</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- BOWLING -->
+  <section class="sport-section bowling-section" id="bowling">
+    <div class="sport-heading">
+      <div class="sport-index">05 <span> / 06</span></div>
+      <div class="sport-title">
+        <span class="section-kicker">PRÄZISION · GESCHICK</span>
+        <h2>BOWL<span>ING</span></h2>
+      </div>
+      <div class="big-sport-icon">🎳</div>
+    </div>
+
+    <div class="sport-layout">
+      <div class="game-panel">
+        <div class="panel-top">
+          <span>THE STRIKE CHALLENGE</span>
+          <span class="round-label" id="bowlingRound">WURF 1 / 5</span>
+        </div>
+        <div class="court bowling-court" id="bowlingCourt">
+          <div class="bowling-lane">
+            <div class="lane-arrows">◂　◂　◂　◂　◂</div>
+            <div class="pins" id="pins">🎳</div>
+            <div class="bowling-ball" id="bowlingBall">⚫</div>
+          </div>
+          <div class="court-hint">KLICKE BEI DER RICHTIGEN KRAFT UND RICHTUNG!</div>
+          <div class="bowling-controls">
+            <div>
+              <label>KRAFT</label>
+              <div class="power-track"><div id="bowlingPower"></div></div>
+            </div>
+            <div>
+              <label>RICHTUNG</label>
+              <div class="direction-track"><div id="bowlingDirection"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="game-controls">
+          <button class="action-button" id="bowlingStart">WURF STARTEN ↗</button>
+          <div class="mini-score">PINS <b id="bowlingScore">0</b></div>
+        </div>
+        <p class="game-feedback" id="bowlingFeedback">Finde die richtige Kombination aus Kraft und Richtung.</p>
+      </div>
+
+      <aside class="sport-info">
+        <span class="info-label">SPORTWISSEN</span>
+        <h3>Über das Spiel</h3>
+        <p>Beim Bowling rollt man eine schwere Kugel über eine Bahn. Am Ende stehen zehn Pins, die man möglichst alle umwerfen möchte.</p>
+        <div class="fact"><b>10</b><span>Pins stehen am Ende der Bowlingbahn.</span></div>
+        <div class="fact"><b>10</b><span>Frames gibt es in einem vollständigen Bowling-Spiel.</span></div>
+        <div class="fact"><b>300</b><span>Punkte sind das perfekte Ergebnis eines Spiels.</span></div>
+        <div class="sport-tip">★ WICHTIG: Gleichmässiger Wurf und Präzision!</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- SCHWIMMEN -->
+  <section class="sport-section swim-section" id="schwimmen">
+    <div class="sport-heading">
+      <div class="sport-index">06 <span> / 06</span></div>
+      <div class="sport-title">
+        <span class="section-kicker">WASSERSPORT · AUSDAUER</span>
+        <h2>SCHWIM<span>MEN</span></h2>
+      </div>
+      <div class="big-sport-icon">🏊</div>
+    </div>
+
+    <div class="sport-layout">
+      <div class="game-panel">
+        <div class="panel-top">
+          <span>THE SWIM RACE</span>
+          <span class="round-label" id="swimRound">BAHN 1 / 3</span>
+        </div>
+        <div class="court swim-court" id="swimCourt">
+          <div class="swim-lane">
+            <div class="lane-marker"></div>
+            <div class="swimmer" id="swimmer">🏊</div>
+            <div class="swim-finish">FINISH</div>
+          </div>
+          <div class="water-ripples">～～～～～～～～～～～～～～</div>
+          <div class="court-hint">DRÜCKE ABWECHSELND LINKS UND RECHTS!</div>
+          <div class="swim-progress"><div id="swimProgress"></div></div>
+        </div>
+        <div class="game-controls">
+          <button class="action-button" id="swimStart">RENNEN STARTEN ↗</button>
+          <div class="mini-score">BAHNEN <b id="swimScore">0</b></div>
+        </div>
+        <p class="game-feedback" id="swimFeedback">Bringe deinen Schwimmer ins Ziel!</p>
+      </div>
+
+      <aside class="sport-info">
+        <span class="info-label">SPORTWISSEN</span>
+        <h3>Über das Spiel</h3>
+        <p>Schwimmen trainiert viele Muskeln gleichzeitig. Im Wettkampfsport gibt es verschiedene Schwimmstile und unterschiedliche Distanzen.</p>
+        <div class="fact"><b>4</b><span>Wichtige Schwimmstile: Freistil, Rücken, Brust und Schmetterling.</span></div>
+        <div class="fact"><b>50 m</b><span>Die Länge eines olympischen Schwimmbeckens.</span></div>
+        <div class="fact"><b>2</b><span>Bahnen ergeben im 50-Meter-Becken 100 Meter.</span></div>
+        <div class="sport-tip">★ WICHTIG: Rhythmus und Ausdauer!</div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="final-score">
+    <div class="trophy">🏆</div>
+    <span class="section-kicker">YOUR SPORTS JOURNEY</span>
+    <h2>Wie gut bist <em>du?</em></h2>
+    <p>Dein Ergebnis aus allen sechs Sportarten.</p>
+    <div class="final-points"><span id="finalPoints">0</span><small>GESAMTPUNKTE</small></div>
+    <button id="resetAll" class="reset-all">ALLE PUNKTE ZURÜCKSETZEN ↻</button>
+  </section>
+
+</main>
+
+<footer>
+  <a class="logo" href="#home">PLAY<span>GROUND</span><i>✳</i></a>
+  <p>FIND YOUR SPORT. PLAY YOUR GAME.</p>
+  <a href="#home">BACK TO TOP ↑</a>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
