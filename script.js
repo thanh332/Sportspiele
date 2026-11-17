@@ -134,16 +134,21 @@ const volleyball = makeGame({
     $("volleyBall").style.top = "130px";
   },
   begin: () => {},
-  animate: (value, direction) => {
-    value += direction * 2.3;
-    if (value >= 82 || value <= 8) direction *= -1;
+  
+animate: (value, direction) => {
+  value += direction * 0.7;
 
-    $("volleyBall").style.left = value + "%";
-    $("volleyBall").style.top =
-      120 + Math.sin(value / 10) * 65 + "px";
+  if (value >= 82 || value <= 8) {
+    direction *= -1;
+  }
 
-    return { value, direction };
-  },
+  $("volleyBall").style.left = value + "%";
+  $("volleyBall").style.top =
+    120 + Math.sin(value / 18) * 35 + "px";
+
+  return { value, direction };
+},
+
   action: (event, value, direction, attempt) => {
     const accuracy = 100 - Math.abs(value - 50);
     let points = 0;
@@ -282,33 +287,21 @@ const soccer = makeGame({
   }
 });
 
-// TENNIS
-const tennis = makeGame({
-  button: $("tennisStart"),
-  area: $("tennisCourt"),
-  maxRounds: 8,
-  speed: 28,
-  startText: "MATCH STARTEN ↗",
-  readyText: "Halte den Ballwechsel so lange wie möglich am Laufen.",
-  startFeedback: "DER BALL FLIEGT!",
-  updateScore: value => $("tennisScore").textContent = value,
-  updateRound: round => setRound("tennisRound", round, 8, "BALL"),
-  feedback: message => setFeedback("tennisFeedback", message),
-  resetVisual: () => {
-    $("tennisBall").style.left = "10%";
-    $("tennisBall").style.top = "45%";
-  },
-  begin: () => {},
-  animate: (value, direction) => {
-    value += direction * 2.7;
-    if (value >= 83 || value <= 7) direction *= -1;
 
-    $("tennisBall").style.left = value + "%";
-    $("tennisBall").style.top =
-      35 + Math.sin(value / 8) * 18 + "%";
+animate: (value, direction) => {
+  value += direction * 0.75;
 
-    return { value, direction };
-  },
+  if (value >= 83 || value <= 7) {
+    direction *= -1;
+  }
+
+  $("tennisBall").style.left = value + "%";
+  $("tennisBall").style.top =
+    45 + Math.sin(value / 18) * 10 + "%";
+
+  return { value, direction };
+},
+
   action: (event, value, direction, attempt) => {
     const accuracy = 100 - Math.abs(value - 50);
     let points = 0;
