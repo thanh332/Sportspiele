@@ -183,7 +183,6 @@ nav a:hover { color: #8065bd; }
   transform: translate(-50%, -50%) rotate(-20deg);
   font-size: 180px;
   filter: drop-shadow(10px 25px 15px #0008);
-  animation: none;
 }
 
 .hero-sticker {
