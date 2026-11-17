@@ -1,5 +1,6 @@
 
 
+
 let totalPoints = 0;
 
 const $ = id => document.getElementById(id);
