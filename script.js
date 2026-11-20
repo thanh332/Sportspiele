@@ -2,6 +2,8 @@
 
 
 
+
+
 let totalPoints = 0;
 
 const $ = id => document.getElementById(id);
@@ -20,10 +22,6 @@ function setRound(id, current, max, label) {
   $(id).textContent = `${label} ${current} / ${max}`;
 }
 
-function randomPosition() {
-  return Math.floor(Math.random() * 80) + 10;
-}
-
 // ======================================
 // GEMEINSAME SPIEL-FUNKTION
 // ======================================
@@ -35,8 +33,6 @@ function makeGame(config) {
   let timer = null;
   let value = 0;
   let direction = 1;
-
-  const maxRounds = config.maxRounds;
 
   function stop() {
     clearInterval(timer);
@@ -52,7 +48,7 @@ function makeGame(config) {
     direction = 1;
 
     config.updateScore(score);
-    config.updateRound(round + 1);
+    config.updateRound(1);
     config.feedback(config.readyText);
     config.resetVisual();
 
@@ -82,21 +78,16 @@ function makeGame(config) {
     config.updateRound(round);
     config.resetVisual();
     config.feedback(config.startFeedback);
+
     config.button.disabled = true;
 
-    config.begin(
-      value,
-      direction,
-      next => { value = next; },
-      newDirection => { direction = newDirection; }
-    );
+    config.begin();
 
     if (config.animate) {
       timer = setInterval(() => {
         if (!active) return;
 
         const result = config.animate(value, direction);
-
         value = result.value;
         direction = result.direction;
       }, config.speed || 35);
@@ -112,14 +103,13 @@ function makeGame(config) {
     addPoints(points);
     config.updateScore(score);
 
-    if (round >= maxRounds) {
+    if (round >= config.maxRounds) {
       end();
     } else {
       round++;
-
       config.updateRound(round);
-      config.feedback(config.roundFeedback(points, round));
-      config.nextRound?.(round);
+      config.feedback(config.roundFeedback(points));
+      config.nextRound?.();
     }
   }
 
@@ -127,79 +117,11 @@ function makeGame(config) {
 
   config.area.addEventListener("click", event => {
     if (!active) return;
-
     config.action(event, value, direction, attempt);
   });
 
   return { reset };
 }
-
-
-// ======================================
-// VOLLEYBALL
-// ======================================
-
-const volleyball = makeGame({
-  button: $("volleyStart"),
-  area: $("volleyCourt"),
-  maxRounds: 5,
-  speed: 30,
-
-  startText: "AUFSCHLAG STARTEN ↗",
-  readyText: "Starte das Spiel und erwische den richtigen Moment.",
-  startFeedback: "DER BALL KOMMT! ZIEL ANVISIEREN!",
-
-  updateScore: value => $("volleyScore").textContent = value,
-  updateRound: round => setRound("volleyRound", round, 5, "RUNDE"),
-  feedback: message => setFeedback("volleyFeedback", message),
-
-  resetVisual: () => {
-    $("volleyBall").style.left = "10%";
-    $("volleyBall").style.top = "130px";
-  },
-
-  begin: () => {},
-
-  animate: (value, direction) => {
-    value += direction * 0.7;
-
-    if (value >= 82 || value <= 8) {
-      direction *= -1;
-    }
-
-    $("volleyBall").style.left = value + "%";
-    $("volleyBall").style.top =
-      120 + Math.sin(value / 18) * 35 + "px";
-
-    return { value, direction };
-  },
-
-  action: (event, value, direction, attempt) => {
-    const accuracy = 100 - Math.abs(value - 50);
-    let points = 0;
-
-    if (accuracy > 94) points = 15;
-    else if (accuracy > 82) points = 10;
-    else if (accuracy > 65) points = 5;
-
-    attempt(points);
-
-    if (points >= 10) {
-      setFeedback("volleyFeedback", `SUPER AUFSCHLAG! +${points} Punkte`);
-    } else if (points > 0) {
-      setFeedback("volleyFeedback", `GUTER TREFFER! +${points} Punkte`);
-    } else {
-      setFeedback("volleyFeedback", "KNAPP DANEBEN! Weiter geht's.");
-    }
-  },
-
-  roundFeedback: points =>
-    points ? `Treffer! +${points} Punkte.` : "Diesmal leider kein Treffer.",
-
-  nextRound: () => {
-    $("volleyBall").style.top = "130px";
-  }
-});
 
 
 // ======================================
@@ -222,7 +144,6 @@ const basketball = makeGame({
 
   resetVisual: () => {
     $("basketMeter").style.left = "0%";
-    $("basketMeter").style.width = "5%";
     $("basketBall").style.left = "18%";
     $("basketBall").style.bottom = "75px";
   },
@@ -295,14 +216,13 @@ const soccer = makeGame({
   resetVisual: () => {
     $("goalKeeper").style.left = "44%";
     $("penaltyBall").style.left = "calc(50% - 18px)";
-    $("penaltyBall").style.bottom = "65px";
+    $("penaltyBall").style.bottom = "-75px";
   },
 
   begin: () => {},
 
   action: (event, value, direction, attempt) => {
     const zone = event.target.closest(".goal-zone");
-
     if (!zone) return;
 
     const chosen = zone.dataset.zone;
@@ -324,13 +244,11 @@ const soccer = makeGame({
     };
 
     $("penaltyBall").style.left = ballPositions[chosen];
-    $("penaltyBall").style.bottom = "220px";
+    $("penaltyBall").style.bottom = "20px";
 
-    let points = 0;
+    const points = chosen !== keeper ? 10 : 0;
 
-    if (chosen !== keeper) {
-      points = 10;
-
+    if (points) {
       setFeedback(
         "soccerFeedback",
         "TOOOOR! Der Torwart war in der falschen Ecke! ⚽"
@@ -351,73 +269,7 @@ const soccer = makeGame({
   nextRound: () => {
     $("goalKeeper").style.left = "44%";
     $("penaltyBall").style.left = "calc(50% - 18px)";
-    $("penaltyBall").style.bottom = "65px";
-  }
-});
-
-
-// ======================================
-// TENNIS
-// ======================================
-
-const tennis = makeGame({
-  button: $("tennisStart"),
-  area: $("tennisCourt"),
-  maxRounds: 8,
-  speed: 28,
-
-  startText: "MATCH STARTEN ↗",
-  readyText: "Halte den Ballwechsel so lange wie möglich am Laufen.",
-  startFeedback: "DER BALL FLIEGT!",
-
-  updateScore: value => $("tennisScore").textContent = value,
-  updateRound: round => setRound("tennisRound", round, 8, "BALL"),
-  feedback: message => setFeedback("tennisFeedback", message),
-
-  resetVisual: () => {
-    $("tennisBall").style.left = "10%";
-    $("tennisBall").style.top = "45%";
-  },
-
-  begin: () => {},
-
-  animate: (value, direction) => {
-    value += direction * 0.75;
-
-    if (value >= 83 || value <= 7) {
-      direction *= -1;
-    }
-
-    $("tennisBall").style.left = value + "%";
-    $("tennisBall").style.top =
-      45 + Math.sin(value / 18) * 10 + "%";
-
-    return { value, direction };
-  },
-
-  action: (event, value, direction, attempt) => {
-    const accuracy = 100 - Math.abs(value - 50);
-    let points = 0;
-
-    if (accuracy > 94) points = 12;
-    else if (accuracy > 82) points = 8;
-    else if (accuracy > 65) points = 4;
-
-    attempt(points);
-
-    setFeedback(
-      "tennisFeedback",
-      points
-        ? `GUTER RÜCKSCHLAG! +${points} Punkte 🎾`
-        : "Der Ball ist weg! Weiter geht's."
-    );
-  },
-
-  roundFeedback: points =>
-    points ? `Ballwechsel geschafft! +${points}.` : "Verpasst! Versuche es nochmals.",
-
-  nextRound: () => {
-    $("tennisBall").style.left = "10%";
+    $("penaltyBall").style.bottom = "-75px";
   }
 });
 
@@ -443,7 +295,7 @@ const bowling = makeGame({
   resetVisual: () => {
     $("bowlingPower").style.width = "5%";
     $("bowlingDirection").style.width = "5%";
-    $("bowlingBall").style.left = "50%";
+    $("bowlingBall").style.bottom = "20px";
     $("pins").textContent = "🎳";
   },
 
@@ -476,12 +328,9 @@ const bowling = makeGame({
     else if (powerDistance < 30) pins = 4;
     else pins = 1;
 
-    $("bowlingBall").style.left = "50%";
     $("bowlingBall").style.bottom = "210px";
 
-    if (pins === 10) $("pins").textContent = "✨";
-    else if (pins >= 7) $("pins").textContent = "🎳";
-    else $("pins").textContent = "🎳";
+    $("pins").textContent = pins === 10 ? "✨" : "🎳";
 
     attempt(pins * 2);
 
@@ -497,7 +346,7 @@ const bowling = makeGame({
     points ? `Guter Wurf! +${points} Punkte.` : "Versuche es erneut.",
 
   nextRound: () => {
-    $("bowlingBall").style.bottom = "12px";
+    $("bowlingBall").style.bottom = "20px";
     $("pins").textContent = "🎳";
   }
 });
@@ -528,15 +377,11 @@ function resetSwim() {
   $("swimStart").disabled = false;
   $("swimStart").textContent = "RENNEN STARTEN ↗";
 
-  setFeedback(
-    "swimFeedback",
-    "Bringe deinen Schwimmer ins Ziel!"
-  );
+  setFeedback("swimFeedback", "Bringe deinen Schwimmer ins Ziel!");
 }
 
 $("swimStart").addEventListener("click", () => {
   resetSwim();
-
   swimActive = true;
 
   $("swimStart").disabled = true;
@@ -581,7 +426,6 @@ $("swimCourt").addEventListener("click", event => {
 
     if (swimRound >= 3) {
       swimActive = false;
-
       addPoints(10);
 
       setFeedback(
@@ -610,10 +454,7 @@ $("swimCourt").addEventListener("click", event => {
     }
 
   } else {
-    setFeedback(
-      "swimFeedback",
-      "GUT! Weiter im Wechsel! 🌊"
-    );
+    setFeedback("swimFeedback", "GUT! Weiter im Wechsel! 🌊");
   }
 });
 
@@ -628,10 +469,8 @@ $("resetAll").addEventListener("click", () => {
   $("totalPoints").textContent = "0";
   $("finalPoints").textContent = "0";
 
-  volleyball.reset();
   basketball.reset();
   soccer.reset();
-  tennis.reset();
   bowling.reset();
   resetSwim();
 });
